@@ -1,0 +1,36 @@
+ package Patterns;
+
+
+    abstract class Payment {
+        abstract void pay(double amount);
+    }
+
+
+    class CreditCardPayment extends Payment {
+        @Override
+        void pay(double amount) {
+            System.out.println("Payment Mode: Credit Card");
+            System.out.println("Amount Paid: " + amount);
+        }
+    }
+
+    class UPIPayment extends Payment {
+        @Override
+        void pay(double amount) {
+            System.out.println("Payment Mode: UPI");
+            System.out.println("Amount Paid: " + amount);
+        }
+    }
+
+
+    public class Exam {
+        public static void main(String[] args) {
+            Payment p1 = new CreditCardPayment(); // runtime polymorphism
+            Payment p2 = new UPIPayment();        // runtime polymorphism
+
+            p1.pay(190.50);
+            p2.pay(75.00);
+        }
+
+    }
+
